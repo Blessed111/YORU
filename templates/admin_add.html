@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        .container {
+            max-width: 550px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h3>Add new team</h3>
+        <a href="/admin/teams" class="btn btn-sm btn-primary">Back</a>
+        <hr/>
+
+        <form action="/admin/teams/add" method="post">
+        {{ if .team1 }}
+            <div class="alert alert-success">
+                {{ .team1 }}
+            </div>
+        {{ end }}
+
+            <div class="form-group">
+                <label for="">teamName</label>
+                <input id="teamName" type="text" name="teamName" value="{{ .team.Team_name }}" class="form-control {{ if .validation.Team_name }} is-invalid {{ end }}">
+                <div class="invalid-feedback">
+                    {{ .validation.Team_name }}
+                </div>
+            </div>  
+            <div class="form-group">
+                <label for="">Player1</label>
+                <input id="player1" type="text" name="player1" value="{{ .team.Player1 }}" class="form-control {{ if .validation.Player1 }} is-invalid {{ end }}">
+                <div class="invalid-feedback">
+                    {{ .validation.Player1 }}
+                </div>
+             <div class="form-group">
+                <label for="">Player2</label>
+                <input  id="player2" type="text" name="player2" value="{{ .team.Player2 }}" class="form-control {{ if .validation.Player2 }} is-invalid {{ end }}">
+                <div class="invalid-feedback">
+                    {{ .validation.Player2 }}
+            </div>
+            <div class="form-group">
+                <label for="">Player3</label>
+                <input  id="player3" type="text" name="player3" value="{{ .team.Player3 }}" class="form-control {{ if .validation.Player3 }} is-invalid {{ end }}">
+                <div class="invalid-feedback">
+                    {{ .validation.Player3 }}
+            </div>
+            <div class="form-group">
+                <label for="">Player4</label>
+                <input  id="player4" type="text" name="player4" value="{{ .team.Player4 }}" class="form-control {{ if .validation.Player4 }} is-invalid {{ end }}">
+                <div class="invalid-feedback">
+                    {{ .validation.Player4 }}
+            </div>
+            <div class="form-group">
+                <label for="">Player5</label>
+                <input  id="player5" type="text" name="player5" value="{{ .team.Player5 }}" class="form-control {{ if .validation.Player5 }} is-invalid {{ end }}">
+                <div class="invalid-feedback">
+                    {{ .validation.Player5 }}
+            </div>
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input  id="password" type="password" name="password" value="{{ .team.Password }}" class="form-control {{ if .validation.Password }} is-invalid {{ end }}">
+                    <div class="invalid-feedback">
+                     {{ .validation.Password }}
+                </div>
+                <div class="form-group">
+                    <label for="">Confirm Password</label>
+                    <input type="password" name="cpassword" value="{{ .team.Cpassword }}" class="form-control {{ if .validation.Cpassword }} is-invalid {{ end }}">
+                    <div class="invalid-feedback">
+                        {{ .validation.Cpassword }}
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block" type="submit">Add</button>
+            </div>
+        </form>
+        
+    </div>
+
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"
+></script>
+
+</body>
+
+</html>

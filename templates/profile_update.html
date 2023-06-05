@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="/assets/css/profile.css">
+
+    <!-- FontAwesome 5 -->  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+</head>
+<body>
+    <!-- Navbar top -->
+    <div class="navbar-top">
+        <a href="/home" class="logo">
+            <img src="/assets/images/logo.svg" alt="GameX logo">
+          
+          </a>
+        <div class="title">
+            <h1>Team Profile</h1>
+        </div>
+
+        <!-- Navbar -->
+        <!-- <ul>
+            <li>
+                <a href="#message">
+                    <span class="icon-count">1</span>
+                    <i class="fa fa-envelope fa-2x"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#notification">
+                    <span class="icon-count">2</span>
+                    <i class="fa fa-bell fa-2x"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#sign-out">
+                    <i class="fa fa-sign-out-alt fa-2x"></i>
+                </a>
+            </li>
+        </ul> -->
+        <!-- End -->
+    </div>
+    <!-- End -->
+
+    <!-- Sidenav -->
+    <div class="sidenav">
+        <div class="profile">
+            <img src="/assets/images/winner-img-2.png" alt="team_image" width="100" height="100">
+
+            <div class="name">
+                <!-- <h2>
+                {{.teamname}}
+            </h2> -->
+            </div>
+            <div class="job">
+                imangali@mail.ru
+            </div>
+        </div>
+
+        <div class="sidenav-url">
+            <div class="url">
+                <a href="/teams/team/profile?id={{.Team_id}}" class="active">Profile</a>
+               
+            </div>
+            <div class="url">
+                <div class="edit_profile">
+                <!-- <a href="#settings">Edit Profile</a> -->
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End -->
+
+    <!-- Main -->
+    <div class="main">
+        <form action="/profile/update" method="post">
+            <h3>Team Info</h3>
+            <hr style="margin:20px">
+
+            {{ if .team1 }}
+            <div class="alert alert-success">
+                {{ .team1 }}
+            </div>
+            {{ end }}
+            <h6>Player 1</h6>
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa fa-pen fa-xs edit"></i>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Nickname</td>
+                                <td>:</td>
+                                <td><input id="player1" type="text" name="player1" value="{{ .team.Player1 }}" class="form-control {{ if .validation.Player1 }} is-invalid {{ end }}">
+                                </td>
+                                <div class="invalid-feedback">
+                                    {{ .validation.Player1 }}
+                                </div>
+                            </tr>
+                                <td>Fullname</td>
+                                <td>:</td>
+                                <td>{.Full_name}</td>
+                            </tr>
+                            <tr>
+                                <td>Position</td>
+                                <td>:</td>
+                                <td>{.position}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h6>Player 2</h6>
+            
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa fa-pen fa-xs edit"></i>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Nickname</td>
+                                <td>:</td>
+                                <td><input id="player2" type="text" name="player2" value="{{ .team.Player2 }}" class="form-control {{ if .validation.Player2 }} is-invalid {{ end }}">
+                                </td>
+                                <div class="invalid-feedback">
+                                    {{ .validation.Player2 }}
+                                </div>
+                            </tr>
+                                <td>Fullname</td>
+                                <td>:</td>
+                                <td>{.Full_name}</td>
+                            </tr>
+                            <tr>
+                                <td>Position</td>
+                                <td>:</td>
+                                <td>{.position}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <h6>Player 3</h6>
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa fa-pen fa-xs edit"></i>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Nickname</td>
+                                <td>:</td>
+                                <td><input id="player3" type="text" name="player3" value="{{ .team.Player3 }}" class="form-control {{ if .validation.Player3 }} is-invalid {{ end }}">
+                                </td>
+                                <div class="invalid-feedback">
+                                    {{ .validation.Player3 }}
+                                </div>
+                            </tr>
+                                <td>Fullname</td>
+                                <td>:</td>
+                                <td>{.Full_name}</td>
+                            </tr>
+                            <tr>
+                                <td>Position</td>
+                                <td>:</td>
+                                <td>{.position}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <h6>Player 4</h6>
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa fa-pen fa-xs edit"></i>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Nickname</td>
+                                <td>:</td>
+                                <td><input id="player4" type="text" name="player4" value="{{ .team.Player4 }}" class="form-control {{ if .validation.Player4 }} is-invalid {{ end }}">
+                                </td>
+                                <div class="invalid-feedback">
+                                    {{ .validation.Player4 }}
+                                </div>
+                            </tr>
+                                <td>Fullname</td>
+                                <td>:</td>
+                                <td>{.Full_name}</td>
+                            </tr>
+                            <tr>
+                                <td>Position</td>
+                                <td>:</td>
+                                <td>{.position}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <h6>Player 5</h6>
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa fa-pen fa-xs edit"></i>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Nickname</td>
+                                <td>:</td>
+                                <td><input id="player5" type="text" name="player5" value="{{ .team.Player5 }}" class="form-control {{ if .validation.Player5 }} is-invalid {{ end }}">
+                                </td>
+                                <div class="invalid-feedback">
+                                    {{ .validation.Player5 }}
+                                </div>
+                            </tr>
+                                <td>Fullname</td>
+                                <td>:</td>
+                                <td>{.Full_name}</td>
+                            </tr>
+                            <tr>
+                                <td>Position</td>
+                                <td>:</td>
+                                <td>{.position}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+    <!-- End -->
+</body>
+</html>

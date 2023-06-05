@@ -1,0 +1,94 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f6f7;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #af9211;
+}
+
+/* Стили для заголовка таблицы */
+thead th {
+    background-color: #af9211;
+    color: #ffffff;
+}
+
+/* Стили для нечетных строк таблицы */
+tbody tr:nth-child(odd) {
+    background-color: #f5f6f7;
+}
+
+/* Стили для столбца "Status Active" */
+tbody td:nth-child(8) {
+    color: #ff8701;
+    font-weight: bold;
+}
+
+/* Стили для футера страницы */
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #1C111F;
+}
+
+
+.green-link{
+    background-color: rgb(66, 163, 66);
+}
+
+.red-link{
+    background-color: rgb(197, 61, 51);
+}
+
+.filled-out{
+    background-color: grey;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 900;
+    padding:10px;
+    text-align: center;
+}
+
+
+a{
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    transition: box-shadow .1s;
+
+}    
+
+a:hover{
+    box-shadow: 0 0 5px  rgb(66, 163, 66);
+}  
+ 
+
+.container {
+    display: flex;
+}
+
+.menu {
+    flex: 0 0 auto;
+}
+
+.content {
+    flex: 1 1 auto;
+}

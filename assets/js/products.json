@@ -1,0 +1,27 @@
+[
+	{
+		"id": 1,
+		"title": "HEADPHONE",
+		"itemsInBox": 6,
+		"weight": 1,
+		"price": 18,
+		"imgSrc": "gears-img-1.png"
+	},
+	{
+		"id": 2,
+		"title": "CONTROLLER",
+		"itemsInBox": 6,
+		"weight": 2,
+		"price": 29,
+		"imgSrc": "gears-img-2.png"
+	},
+	{
+		"id": 3,
+		"title": "KEYBOARD",
+		"itemsInBox": 6,
+		"weight": 2,
+		"price": 45,
+		"imgSrc": "gears-img-3.png"
+	},
+	
+]

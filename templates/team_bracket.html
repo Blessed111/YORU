@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brecket</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+
+body {
+    margin: 4em;
+    background-color: #fff;
+    font-family: helvetica, arial, sans-serif;
+}
+
+
+.team {
+    border-radius: 20px;
+    color: #000;
+    padding: 30px;
+    background-color: rgb(245, 183, 66);
+    margin: 10px;
+}
+.winner {
+    background-color: #5dff5d;
+ 
+}
+
+.loser {
+ 
+    background-color: #fa6767;
+}
+
+.bracket {
+    display: flex;
+}
+
+.round {
+    max-width: 40%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.match {
+    
+    margin: 15px;
+    overflow: hidden;
+
+}
+
+
+
+.team:nth-child(odd) {
+    border-bottom: 1px solid #8fc7ff;
+}
+
+
+</style>
+<body>
+
+  {{$totalRound := .TotalRound}}
+  <div class="bracket">
+    {{if ge $totalRound 1}}
+    <div class="round">
+      Round: 1
+      {{range .Match}}
+      {{if eq .RoundNumber 1}}
+      <div class="match">
+          <div class="team{{if eq .WinnerID .FirstParticipantID}} winner{{else if eq .LoserID .FirstParticipantID}} loser{{end}}">
+            {{if eq .WinnerID .FirstParticipantID}}
+            <i class="fa fa-trophy" aria-hidden="true"></i>
+            {{end}}
+            {{.FirstParticipant.Team_name}}
+          </div>
+          <div class="team{{if eq .WinnerID .SecondParticipantID}} winner{{else if eq .LoserID .SecondParticipantID}} loser{{end}}">
+            {{if eq .WinnerID .SecondParticipantID}}  
+            <i class="fa fa-trophy" aria-hidden="true"></i>
+            {{end}}
+            {{.SecondParticipant.Team_name}}
+          </div>
+      </div>
+      {{end}}
+      {{end}}
+    </div>
+    {{end}}
+
+
+    {{if ge $totalRound 2}}
+    <div class="round">
+      Round: 2
+      {{range .Match}}
+      {{if eq .RoundNumber 2}}
+      <div class="match">
+        <div class="team{{if eq .WinnerID .FirstParticipantID}} winner{{else if eq .LoserID .FirstParticipantID}} loser{{end}}">
+            {{if eq .WinnerID .FirstParticipantID}}
+            <i class="fa fa-trophy" aria-hidden="true"></i>
+            {{end}}
+            {{.FirstParticipant.Team_name}}
+          </div>
+          <div class="team{{if eq .WinnerID .SecondParticipantID}} winner{{else if eq .LoserID .SecondParticipantID}} loser{{end}}">
+            {{if eq .WinnerID .SecondParticipantID}}  
+            <i class="fa fa-trophy" aria-hidden="true"></i>
+            {{end}}
+            {{.SecondParticipant.Team_name}}
+          </div>
+      </div>
+      {{end}}
+      {{end}}
+    </div>
+    {{end}}
+
+    {{if ge $totalRound 3}}
+    <div class="round">
+      Round: 3
+      {{range .Match}}
+      {{if eq .RoundNumber 3}}
+      <div class="match">
+        <div class="team{{if eq .WinnerID .FirstParticipantID}} winner{{else if eq .LoserID .FirstParticipantID}} loser{{end}}">
+            {{if eq .WinnerID .FirstParticipantID}}
+            <i class="fa fa-trophy" aria-hidden="true"></i>
+            {{end}}
+            {{.FirstParticipant.Team_name}}
+          </div>
+          <div class="team{{if eq .WinnerID .SecondParticipantID}} winner{{else if eq .LoserID .SecondParticipantID}} loser{{end}}">
+            {{if eq .WinnerID .SecondParticipantID}}  
+            <i class="fa fa-trophy" aria-hidden="true"></i>
+            {{end}}
+            {{.SecondParticipant.Team_name}}
+          </div>
+      </div>
+      {{end}}
+      {{end}}
+    </div>
+    {{end}}
+
+
+    {{if ge $totalRound 4}}
+    <div class="round">
+      Round: 4
+      {{range .Match}}
+      {{if eq .RoundNumber 4}}
+      <div class="match">
+        <div class="team{{if eq .WinnerID .FirstParticipantID}} winner{{else if eq .LoserID .FirstParticipantID}} loser{{end}}">
+            {{if eq .WinnerID .FirstParticipantID}}
+            <i class="fa fa-trophy" aria-hidden="true"></i>
+            {{end}}
+            {{.FirstParticipant.Team_name}}
+          </div>
+          <div class="team{{if eq .WinnerID .SecondParticipantID}} winner{{else if eq .LoserID .SecondParticipantID}} loser{{end}}">
+            {{if eq .WinnerID .SecondParticipantID}}  
+            <i class="fa fa-trophy" aria-hidden="true"></i>
+            {{end}}
+            {{.SecondParticipant.Team_name}}
+          </div>
+      </div>
+      {{end}}
+      {{end}}
+    </div>
+    {{end}}
+
+    {{if ge $totalRound 5}}
+    <div class="round">
+      Round: 5
+      {{range .Match}}
+      {{if eq .RoundNumber 5}}
+      <div class="match">
+        <div class="team{{if eq .WinnerID .FirstParticipantID}} winner{{else if eq .LoserID .FirstParticipantID}} loser{{end}}">
+            {{if eq .WinnerID .FirstParticipantID}}
+            <i class="fa fa-trophy" aria-hidden="true"></i>
+            {{end}}
+            {{.FirstParticipant.Team_name}}
+          </div>
+          <div class="team{{if eq .WinnerID .SecondParticipantID}} winner{{else if eq .LoserID .SecondParticipantID}} loser{{end}}">
+            {{if eq .WinnerID .SecondParticipantID}}  
+            <i class="fa fa-trophy" aria-hidden="true"></i>
+            {{end}}
+            {{.SecondParticipant.Team_name}}
+          </div>
+      </div>
+      {{end}}
+      {{end}}
+    </div>
+    {{end}}
+
+    {{if ge $totalRound 6}}
+    <div class="round">
+      Round: 6
+      {{range .Match}}
+      {{if eq .RoundNumber 6}}
+      <div class="match">
+        <div class="team{{if eq .WinnerID .FirstParticipantID}} winner{{else if eq .LoserID .FirstParticipantID}} loser{{end}}">
+            {{if eq .WinnerID .FirstParticipantID}}
+            <i class="fa fa-trophy" aria-hidden="true"></i>
+            {{end}}
+            {{.FirstParticipant.Team_name}}
+          </div>
+          <div class="team{{if eq .WinnerID .SecondParticipantID}} winner{{else if eq .LoserID .SecondParticipantID}} loser{{end}}">
+            {{if eq .WinnerID .SecondParticipantID}}  
+            <i class="fa fa-trophy" aria-hidden="true"></i>
+            {{end}}
+            {{.SecondParticipant.Team_name}}
+          </div>
+      </div>
+      {{end}}
+      {{end}}
+    </div>
+    {{end}}
+
+    {{if ge $totalRound 7}}
+    <div class="round">
+      Round: 7
+      {{range .Match}}
+      {{if eq .RoundNumber 7}}
+      <div class="match">
+        <div class="team{{if eq .WinnerID .FirstParticipantID}} winner{{else if eq .LoserID .FirstParticipantID}} loser{{end}}">
+            {{if eq .WinnerID .FirstParticipantID}}
+            <i class="fa fa-trophy" aria-hidden="true"></i>
+            {{end}}
+            {{.FirstParticipant.Team_name}}
+          </div>
+          <div class="team{{if eq .WinnerID .SecondParticipantID}} winner{{else if eq .LoserID .SecondParticipantID}} loser{{end}}">
+            {{if eq .WinnerID .SecondParticipantID}}  
+            <i class="fa fa-trophy" aria-hidden="true"></i>
+            {{end}}
+            {{.SecondParticipant.Team_name}}
+          </div>
+      </div>
+      {{end}}
+      {{end}}
+    </div>
+    {{end}}
+
+    {{if ge $totalRound 8}}
+    <div class="round">
+      Round: 8
+      {{range .Match}}
+      {{if eq .RoundNumber 8}}
+      <div class="match">
+        <div class="team{{if eq .WinnerID .FirstParticipantID}} winner{{else if eq .LoserID .FirstParticipantID}} loser{{end}}">
+            {{if eq .WinnerID .FirstParticipantID}}
+            <i class="fa fa-trophy" aria-hidden="true"></i>
+            {{end}}
+            {{.FirstParticipant.Team_name}}
+          </div>
+          <div class="team{{if eq .WinnerID .SecondParticipantID}} winner{{else if eq .LoserID .SecondParticipantID}} loser{{end}}">
+            {{if eq .WinnerID .SecondParticipantID}}  
+            <i class="fa fa-trophy" aria-hidden="true"></i>
+            {{end}}
+            {{.SecondParticipant.Team_name}}
+          </div>
+      </div>
+      {{end}}
+      {{end}}
+    </div>
+    {{end}}
+
+    {{if ge $totalRound 9}}
+    <div class="round">
+      Round: 9
+      {{range .Match}}
+      {{if eq .RoundNumber 9}}
+      <div class="match">
+        <div class="team{{if eq .WinnerID .FirstParticipantID}} winner{{else if eq .LoserID .FirstParticipantID}} loser{{end}}">
+            {{if eq .WinnerID .FirstParticipantID}}
+            <i class="fa fa-trophy" aria-hidden="true"></i>
+            {{end}}
+            {{.FirstParticipant.Team_name}}
+          </div>
+          <div class="team{{if eq .WinnerID .SecondParticipantID}} winner{{else if eq .LoserID .SecondParticipantID}} loser{{end}}">
+            {{if eq .WinnerID .SecondParticipantID}}  
+            <i class="fa fa-trophy" aria-hidden="true"></i>
+            {{end}}
+            {{.SecondParticipant.Team_name}}
+          </div>
+      </div>
+      {{end}}
+      {{end}}
+    </div>
+    {{end}}
+
+    {{if ge $totalRound 10}}
+    <div class="round">
+      Round: 10
+      {{range .Match}}
+      {{if eq .RoundNumber 10}}
+      <div class="match">
+        <div class="team{{if eq .WinnerID .FirstParticipantID}} winner{{else if eq .LoserID .FirstParticipantID}} loser{{end}}">
+            {{if eq .WinnerID .FirstParticipantID}}
+            <i class="fa fa-trophy" aria-hidden="true"></i>
+            {{end}}
+            {{.FirstParticipant.Team_name}}
+          </div>
+          <div class="team{{if eq .WinnerID .SecondParticipantID}} winner{{else if eq .LoserID .SecondParticipantID}} loser{{end}}">
+            {{if eq .WinnerID .SecondParticipantID}}  
+            <i class="fa fa-trophy" aria-hidden="true"></i>
+            {{end}}
+            {{.SecondParticipant.Team_name}}
+          </div>
+      </div>
+      {{end}}
+      {{end}}
+    </div>
+    {{end}}
+  </div>
+
+</body>
+
+</html>

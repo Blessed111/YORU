@@ -1,0 +1,8 @@
+port: "8000"
+db:
+  username: "yoru"
+  password: "1111"
+  host: "localhost"
+  port: "5432"
+  dbname: "yoru"
+  sslmode: "disable"

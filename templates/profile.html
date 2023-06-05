@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="../../assets/css/profile.css">
+
+    <!-- FontAwesome 5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <style>
+        /* Import Font Dancing Script */
+    @import url(https://fonts.googleapis.com/css?family=Dancing+Script);
+    
+    :root {
+    
+    /**
+     * colors
+     */
+    
+    --raisin-black-1: hsl(234, 14%, 14%);
+    --raisin-black-2: hsl(231, 12%, 12%);
+    --raisin-black-3: hsl(228, 12%, 17%);
+    --eerie-black: hsl(240, 11%, 9%);
+    --light-gray: hsl(0, 0%, 80%);
+    --platinum: hsl(0, 4%, 91%);
+    --xiketic: hsl(275, 24%, 10%);
+    --orange: hsl(31, 100%, 51%);
+    --white: hsl(0, 0%, 100%);
+    --onyx: hsl(240, 5%, 26%);
+    
+    /**
+     * typography
+     */
+    
+    
+    --ff-refault: "Refault", Georgia;
+    --ff-oswald: 'Oswald', sans-serif;
+    --ff-poppins: 'Poppins', sans-serif;
+    
+    --fs-1: 54px;
+    --fs-2: 34px;
+    --fs-3: 30px;
+    --fs-4: 26px;
+    --fs-5: 22px;
+    --fs-6: 20px;
+    --fs-7: 18px;
+    --fs-8: 15px;
+    --fs-9: 14px;
+    --fs-10: 13px;
+    --fs-11: 12px;
+    
+    --fw-400: 400;
+    --fw-500: 500;
+    --fw-700: 700;
+    
+    /**
+     * transition
+     */
+    
+    --transition-1: 0.15s ease-in-out;
+    --transition-2: 0.15s ease-in;
+    --transition-3: 0.25s ease-out;
+    
+    /**
+     * spacing
+     */
+    
+    --section-padding: 60px;
+    
+    /**
+     * clip path
+     */
+    
+    --polygon-1: polygon(90% 0, 100% 34%, 100% 100%, 10% 100%, 0 66%, 0 0);
+    --polygon-2: polygon(0 0, 100% 0%, 82% 100%, 0% 100%);
+    --polygon-3: polygon(0 0, 100% 0%, 100% 100%, 18% 100%);
+    --polygon-4: polygon(96% 0, 100% 36%, 100% 100%, 4% 100%, 0 66%, 0 0);
+    
+    }
+    
+    * {
+        margin: 0;
+    }
+    
+    
+    body {
+        position: relative;
+        background: var(--raisin-black-1);
+        font-family: 'Oswald', sans-serif;
+        overflow: hidden;
+        overflow-y: scroll;
+        margin-top: 90px;
+    }
+    
+    /* NavbarTop */
+    .navbar-top {
+        background: var(--raisin-black-1);
+        box-shadow: 0 3px 27px hsla(0, 0%, 0%, 0.5);
+        color: var(--platinum);
+        
+        height: 70px;
+        display: flex;
+        justify-content: space-between;
+        z-index: 1;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        
+    }
+    h1,h2,h3,h4,h5,h6{
+        color: var(--platinum);
+    }
+    .logo { 
+        margin: auto 20px ;
+    }
+    
+    .title {
+        font-family: var(--ff-oswald);
+        padding-top: 15px;
+        position: absolute;
+        left: 45%;
+    }
+    
+    .navbar-top ul {
+        float: right;
+        list-style-type: none;
+        margin: 0;
+        overflow: hidden;
+        padding: 18px 50px 0 40px;
+    }
+    
+    .navbar-top ul li {
+        float: left;
+    }
+    
+    .navbar-top ul li a {
+        color: #333;
+        padding: 14px 16px;
+        text-align: center;
+        text-decoration: none;
+    }
+    
+    .icon-count {
+        background-color: #ff0000;
+        color: #fff;
+        float: right;
+        font-size: 11px;
+        left: -25px;
+        padding: 2px;
+        position: relative;
+    }
+    
+    /* End */
+    
+    /* Sidenav */
+    .sidenav {
+        background: var(--raisin-black-1);
+        box-shadow: 0 3px 27px hsla(0, 0%, 0%, 0.5);
+        color: var(--platinum);
+        border-bottom-right-radius: 25px;
+        height: 100%;
+        left: 0;
+        overflow-x: hidden;
+        padding-top: 100px;
+        position: absolute;
+        top: 0%;
+        width: 250px;
+        position: fixed;
+        z-index: -1;
+    
+    }
+    
+    .profile {
+        margin-bottom: 20px;
+        margin-top: -12px;
+        text-align: center;
+    }
+    
+    .profile img {
+        border-radius: 50%;
+        box-shadow: 0px 0px 5px 1px grey;
+    }
+    
+    .name {
+        text-transform: uppercase;
+        font-size: 20px;
+        font-weight: bold;
+        padding-top: 20px;
+    }
+    
+    .job {
+        font-size: 16px;
+        font-weight: bold;
+        padding-top: 10px;
+    }
+    
+    .url, hr {
+        text-align: center;
+    }
+    
+    .url hr {
+        margin-left: 20%;
+        width: 60%;
+    }
+    
+    .url a {
+        color: #818181;
+        display: block;
+        font-size: 20px;
+        margin: 10px 0;
+        padding: 6px 8px;
+        text-decoration: none;
+    }
+    
+    .url a:hover, .url .active {
+        background-color: #e8f5ff;
+        border-radius: 28px;
+        color: #000;
+        margin-left: 14%;
+        width: 65%;
+    }
+    
+    
+    
+    /* End */
+    
+    /* Main */
+    .main {
+        margin-top: 2%;
+        margin-left: 29%;
+        font-size: 28px;
+        padding: 0 10px;
+        width: 58%;
+    }
+    
+    .main h2 {
+        color: white;
+        font-family: var(--ff-refault);
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    /*new*/
+    .main h6 {
+        color: white;
+        font-family: var(--ff-oswald);
+    }
+    /*end*/
+    .main .card {
+        font-family: 'Oswald', sans-serif;
+        background-color: #FF8605;
+        border-radius: 18px;
+        box-shadow: 1px 1px 8px 0 grey;
+        height: auto;
+        margin-bottom: 20px;
+        padding: 10px 0 10px 50px;
+        width: 650px;
+    }
+    
+    .main .card table {
+        font-family: 'Oswald', sans-serif;
+        font-weight: bold;
+        border: none;
+        font-size: 16px;
+        height: 100px;
+        width: 80%;
+    }
+    
+    .edit {
+        position: absolute;
+        color: #e7e7e8;
+        right: 14%;
+    }
+    
+    /*new*/
+    .players {
+        padding-bottom: 5px;
+    }
+    
+    .orange {
+        color: #FF8605;
+    }
+    /*end*/
+    .social-media {
+        text-align: center;
+        width: 90%;
+    }
+    
+    .social-media span {
+        margin: 0 10px;
+        color: #1F2029;
+    
+    }
+    
+    .fa-facebook:hover {
+        color: #4267b3 !important;
+    }
+    
+    .fa-twitter:hover {
+        color: #1da1f2 !important;
+    }
+    
+    .fa-instagram:hover {
+        color: #ce2b94 !important;
+    }
+    
+    .fa-invision:hover {
+        color: #f83263 !important;
+    }
+    
+    .fa-github:hover {
+        color: #161414 !important;
+    }
+    
+    .fa-whatsapp:hover {
+        color: #25d366 !important;
+    }
+    
+    .fa-snapchat:hover {
+        color: #fffb01 !important;
+    }
+    
+    /* End */
+    </style>
+</head>
+<body>
+    <!-- Navbar top -->
+    <div class="navbar-top">
+        <a href="/home" class="logo">
+            <img src="../../assets/images/logo.svg" alt="GameX logo">
+          
+          </a>
+        <div class="title">
+            <h1>Team Profile</h1>
+        </div>
+
+        <!-- Navbar -->
+        <!-- <ul>
+            <li>
+                <a href="#message">
+                    <span class="icon-count">1</span>
+                    <i class="fa fa-envelope fa-2x"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#notification">
+                    <span class="icon-count">2</span>
+                    <i class="fa fa-bell fa-2x"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#sign-out">
+                    <i class="fa fa-sign-out-alt fa-2x"></i>
+                </a>
+            </li>
+        </ul> -->
+        <!-- End -->
+    </div>
+    <!-- End -->
+
+    <!-- Sidenav -->
+    <div class="sidenav">
+        <div class="profile">
+            <img src="../../assets/images/winner-img-2.png" alt="team_image" width="100" height="100">
+
+            <div class="name">
+                <h2>
+                {{.team.Team_name}}
+            </h2>
+            </div>
+            <div class="job">
+                <!-- imangali@mail.ru -->
+            </div>
+        </div>
+
+        <div class="sidenav-url">
+            <div class="url">
+                <a href="#profile" class="active">Profile</a>
+            </div>
+        </div>
+    </div>
+    <!-- End -->
+
+    <!-- Main -->
+    <div class="main">
+        <h3>Team Info</h3>
+        <div class="url">
+            <div class="edit_profile">
+                <!-- <a href="/profile/update?id={{ .team.Team_id }}">Edit Profile</a> -->
+            </div>
+        </div>
+        <hr style="margin:20px; width: 670px;">
+        <h6>Player 1</h6>
+        <div class="card">
+            <div class="card-body">
+              
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Nickname</td>
+                            <td>:</td>
+                            <td>{{.team.Player1}}</td>
+                        </tr>
+                        
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <h6>Player 2</h6>
+        
+        <div class="card">
+            <div class="card-body">
+               
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Nickname</td>
+                            <td>:</td>
+                            <td>{{.team.Player2}}</td>
+                        </tr>
+                      
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <h6>Player 3</h6>
+        <div class="card">
+            <div class="card-body">
+               
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Nickname</td>
+                            <td>:</td>
+                            <td>{{.team.Player3}}</td>
+                        </tr>
+                       
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <h6>Player 4</h6>
+        <div class="card">
+            <div class="card-body">
+              
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Nickname</td>
+                            <td>:</td>
+                            <td>{{.team.Player4}}</td>
+                        </tr>
+                      
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <h6>Player 5</h6>
+        <div class="card">
+            <div class="card-body">
+              
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Nickname</td>
+                            <td>:</td>
+                            <td>{{.team.Player5}}</td>
+                        </tr>
+                      
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    
+        <h2>SOCIAL MEDIA</h2>
+        <div class="card">
+            <div class="card-body">
+                <div class="social-media">
+                    <span class="fa-stack fa-sm">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <span class="fa-stack fa-sm">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <span class="fa-stack fa-sm">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <span class="fa-stack fa-sm">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-invision fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <span class="fa-stack fa-sm">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <span class="fa-stack fa-sm">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-whatsapp fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <span class="fa-stack fa-sm">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-snapchat fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End -->
+</body>
+</html>

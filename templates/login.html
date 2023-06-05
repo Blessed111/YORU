@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        :root {
+
+/**
+ * colors
+ */
+
+--raisin-black-1: hsl(234, 14%, 14%);
+--raisin-black-2: hsl(231, 12%, 12%);
+--raisin-black-3: hsl(228, 12%, 17%);
+--eerie-black: hsl(240, 11%, 9%);
+--light-gray: hsl(0, 0%, 80%);
+--platinum: hsl(0, 4%, 91%);
+--xiketic: hsl(275, 24%, 10%);
+--orange: hsl(31, 100%, 51%);
+--white: hsl(0, 0%, 100%);
+--onyx: hsl(240, 5%, 26%);
+
+/**
+ * typography
+ */
+
+--ff-refault: "Refault", Georgia;
+--ff-oswald: 'Oswald', sans-serif;
+--ff-poppins: 'Poppins', sans-serif;
+
+--fs-1: 54px;
+--fs-2: 34px;
+--fs-3: 30px;
+--fs-4: 26px;
+--fs-5: 22px;
+--fs-6: 20px;
+--fs-7: 18px;
+--fs-8: 15px;
+--fs-9: 14px;
+--fs-10: 13px;
+--fs-11: 12px;
+
+--fw-400: 400;
+--fw-500: 500;
+--fw-700: 700;
+
+/**
+ * transition
+ */
+
+--transition-1: 0.15s ease-in-out;
+--transition-2: 0.15s ease-in;
+--transition-3: 0.25s ease-out;
+
+/**
+ * spacing
+ */
+
+--section-padding: 60px;
+
+/**
+ * clip path
+ */
+
+--polygon-1: polygon(90% 0, 100% 34%, 100% 100%, 10% 100%, 0 66%, 0 0);
+--polygon-2: polygon(0 0, 100% 0%, 82% 100%, 0% 100%);
+--polygon-3: polygon(0 0, 100% 0%, 100% 100%, 18% 100%);
+--polygon-4: polygon(96% 0, 100% 36%, 100% 100%, 4% 100%, 0 66%, 0 0);
+
+}
+        .container {
+            max-width: 500px;
+        }
+        
+.btn-primary {
+    background: var(--orange);
+}
+
+.btn:hover{
+    background: rgb(158, 103, 0);
+}
+.btn {
+    color: var(--white);
+    font-family: var(--ff-oswald);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-500);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 34px;
+    clip-path: var(--polygon-1);
+    transition: var(--transition-1);
+    margin: 0 auto;
+}
+button {
+    font: inherit;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <form action="/auth/logi" method="post">
+            <h4>SIGN IN</h4>
+            <p>Enter your teamName and password</p>
+            <hr/>
+
+            {{ if  .error }}
+                <div class="alert alert-danger">
+                    {{ .error }}
+                </div>
+            {{ end }}
+
+            <div class="form-group">
+                <label>TeamName</label>
+                <input type="text" name="teamName" class="form-control {{ if .validation.Team_name }} is-invalid {{ end }}" autocomplete="off" id="teamName"/>
+                <div class="invalid-feedback">
+                    {{ .validation.Team_name }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control {{ if .validation.Password }} is-invalid {{ end }}" autocomplete="off" id="password"/>
+                <div class="invalid-feedback">
+                    {{ .validation.Password }}
+                </div>
+            </div>
+
+            <button class="btn btn-primary">
+                <span>Login</span>
+                <ion-icon name="play-circle"></ion-icon>
+              </button>
+
+            <hr/>
+            <center>
+                <p>Not Registered? <a href="/auth/sign-up">Register</a></p>
+            </center>
+        </form>
+    </div>
+<script>
+    function sendJson(){
+        let teamName = document.querySelector('#teamName');
+        let password = document.querySelector('#password');
+
+        // Creating a XHR object
+        let xhr = new XMLHttpRequest();
+        let url = "http://localhost:8000/auth/sign-in";
+
+        // open a connection
+        xhr.open("POST", url, true);
+
+        // Set the request header i.e. which type of content you are sending
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        // Create a state change callback
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+
+                // Print received data from server
+                result.innerHTML = this.responseText;
+
+            }
+        };
+
+        // Converting JSON data to string
+        var data = JSON.stringify({ "teamName": teamName.value, "password": password.value });
+
+        // Sending data with the request
+
+        xhr.send(data);
+    }
+</script>
+</body>
+</html>
